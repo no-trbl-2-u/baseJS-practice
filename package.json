@@ -1,0 +1,11 @@
+{
+  "name": "basejs",
+  "version": "1.0.0",
+  "description": "A library of various functions & logic.",
+  "main": "base.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TJ Allen",
+  "license": "MIT"
+}
