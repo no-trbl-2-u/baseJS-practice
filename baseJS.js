@@ -1,4 +1,4 @@
-
+// ARRAY METHODS (NON-MUTATING)
 // arr.map
 const map = (func, arr) => {
   // Create a result arry
@@ -12,16 +12,6 @@ const map = (func, arr) => {
     resultArray.push(func(arr[i]));
   }
   return resultArray;
-};
-
-// arr.includes
-const includes = (str, arr) => {
-  for(let i = 0; i < arr.length; i++){
-    if(str === arr[i])
-      return true;
-    else
-      return false;
-  }
 };
 
 // arr.filter
@@ -44,7 +34,89 @@ const filter = (func, arr) => {
   return tmp;
 };
 
-// Play data
-const arr = [1, 2, 3];
-const arr2 = [`a`, `b`, `c`];
+// arr.reduce TBD
+// const reduce = (func, arr) => arr.reduce(func)
 
+// arr.includes
+const includes = (str, arr) => {
+  for(let i = 0; i < arr.length; i++){
+    if(str === arr[i])
+      return true;
+    else
+      return false;
+  }
+};
+
+// arr.find
+const find = (str, arr) => arr.includes(str) ? [str] : false;
+
+// arr.concat (Flattened)
+const concat = (...args) => {
+  let resultArray = [];
+  
+  // Iterate over each arg
+  for(let i=0; i<args.length; i++) {
+
+    // then Iterate over each ele in each array
+    for(let j=0; j<args[i].length; j++) {
+
+      // Place each element in the new array 
+      resultArray.push(args[i][j])
+    }
+  }
+  
+  return resultArray;
+};
+
+// arr.concat (unFlattened)
+const _concat = (...args) => [...args]
+
+// arr.every
+const every = (func, arr) => {
+  let result = true;
+  for (let i=0; i<arr.length; i++) {
+    // Apply conditional func to each array element
+    if(func(arr[i]) === false){
+      // If ANY of the elements return false,
+      // return from this block w/ false
+      result = false
+      return result
+    }else{
+      result = true
+    }
+  }
+  return result
+}
+
+// arr.slice
+const slice = (start, end, arr) => {
+  let resultArray = [];
+  // If the iterator index is in the "sweet spot"
+  // Push ele[index] to the new array
+  for (let i=0; i<arr.length; i++) {
+    if(i >= start && i <= end){
+      resultArray.push(arr[i]);
+    };
+  };
+  return resultArray;
+}
+
+// arr.indexOf
+const indexOf = (arg, arr) => {
+  for (let i=0; i<arr.length; i++) {
+    if(arr[i] === arg)
+      return i
+    else if(!arr.includes(arg))
+      return -1
+  }
+}
+
+// Play data
+const arr = [1, 2, 3, 4, 5];
+const arr2 = [`a`, `b`, `c`];
+const arr3 = [0, 1, 2, 3, 4]
+const add5 = x => x + 5;
+const add = (x, y) => x + y;
+const gt1 = x => x > 1
+
+console.log(indexOf(5, arr3))
