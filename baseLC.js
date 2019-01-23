@@ -22,6 +22,16 @@ const or = p => q => p(p)(q);        // Or {M*} ** discovered :D **
 const beq = p => q => p(q)(not(q));   // Boolean Equality
 const _beq = p => q => p(q(T)(F))(q(F)(T));
 
+<<<<<<< HEAD
+=======
+// FP Style Use cases
+
+// of :: arg => arg
+const of = a => a
+
+// unary :: function -> function
+const unary = func => x => func(x)
+>>>>>>> a8fd0d81d4ba8bba8b35357984edc4267454dd25
 
 // Playground functions
 const add = a => b => a+b;
